@@ -9,7 +9,7 @@ const cors=require('cors');
 const path=require('path');
 
 const app=express() 
-const PORT=4000;
+const PORT=process.env.PORT || 4000;
 dotEnv.config();
 mongoose.connect(process.env.MONGO_URI)
  .then(()=>console.log("MongoDb connected successfully!!"))
@@ -23,7 +23,7 @@ app.listen(PORT,()=>{
     console.log("Server started and running at port 4000");
 });
 
-app.use('/Akhil',(req,res)=>{
-    res.send("<h1>Welcome to Hungryhub</h1>");
+app.use('/',(req,res)=>{
+    res.send("<h1>Welcome to HungryHub</h1>");
 })
 
